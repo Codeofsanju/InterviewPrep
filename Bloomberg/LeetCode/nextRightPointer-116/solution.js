@@ -41,6 +41,7 @@ const connect = (root) => {
     connect(root.right);
 };
 
+
 const node1 = new node(1);
 const node2 = new node(2);
 const node3 = new node(3);
@@ -58,8 +59,19 @@ node2.right = node5;
 node3.left = node6;
 node3.right = node7;
 
-console.log(node1);
+console.log('BEFORE: next right pointer null: ',node1);
 connect(node1);
-console.log('after: ', node1);
+console.log('after: next right pointers populated: ');
+console.log('node 1 next:', node1.next);
+console.log('node 2 next:',node2.next.val);
+console.log('node 3 next:',node3.next);
+console.log('node 4 next:',node4.next.val);
+console.log('node 5 next:',node5.next.val);
+console.log('node 6 next:',node6.next.val);
+console.log('node 7 next:',node7.next);
+
+
+
+
 
 
