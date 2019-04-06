@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Purpose
+
+Example ref usage for class and functional components. On enter focus change! 
+
 ## Available Scripts
 
 In the project directory, you can run:
