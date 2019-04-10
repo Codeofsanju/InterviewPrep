@@ -67,3 +67,14 @@ const foo2 = () =>
 
 console.log(foo1());
 console.log(foo2()); // undefined because a return without anything else on the line automatically gets a semicolon placed at the end
+
+
+console.log(typeof NaN === "number");  // logs "true"
+console.log(NaN === NaN);  // logs "false"
+console.log('aa' === NaN); // logs false
+console.log(isNaN('aa')); // logs true
+
+const nan = NaN;
+console.log(nan !== nan);
+
+
