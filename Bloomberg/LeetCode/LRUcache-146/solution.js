@@ -25,25 +25,46 @@
 */
 
 /* APPROACH:
-
+    1. have a list tp track recently used 
+    2. have a map to store cached items
 */
 
 
 class LRUCache{
-    constructor(){
-
+    constructor(capacity){
+        this.list = [];
+        this.cache = new Map();
+        this.capacity = capacity;
     }
 
     //put(key, value) - Set or insert the value if the key is not already 
     //present. When the cache reached its capacity, it should invalidate the 
     //least recently used item before inserting a new item.
     put(key, value){
-
+        if(!this.cache.has(key)){
+            if(this.cache.size === this.capacity){
+                let removedKey = this.list.shift(); // get least recently used from list
+                this.cache.delete(removedKey); // delete from cache
+            }
+            this.cache.set(key, value); // set new value
+            this.list.push(key); // push to most recently accessed
+        } else {
+            this.cache.set(key, value);
+            this.get(key); // get will place to most recently used
+        }
     }
 
     //Get the value (will always be positive) of the key if the key exists
     //in the cache, otherwise return -1.
     get(key){ 
-
+        if(this.cache.has(key)){
+            let index = this.list.indexOf(key); // find index of key
+            let removedKey = this.list[index]; // store 
+            this.list.splice(index, 1); // remove from list
+            this.list.push(removedKey); // place at most recently used
+            return this.cache.get(key);
+        } else {
+            return -1;
+        }
     }
 }
