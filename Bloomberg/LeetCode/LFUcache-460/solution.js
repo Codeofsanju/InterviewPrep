@@ -62,20 +62,24 @@ const LFUCache = function(cap) {
 
 const sortHelper = function(list, cache){
     list.sort((a, b) => {
-        return cache[a].freq > cache[b].freq ? 1 : -1;
+        return cache[a].freq >= cache[b].freq ? 1 : -1;
     });
 };
 
+const removeHelper = function(list, cache){
+    // console.log('\nCAPACITY REACHED!\n');
+    delete cache[list[0]];
+    list.shift();
+};
+
 LFUCache.prototype.get = function(key) {
+    if(this.cap === 0) return -1;
     if(!this.cache[key]){
         return -1;
     } else {
         this.cache[key].freq++;
-        // this.list.sort((a, b) => {
-        //     return this.cache[a].freq > this.cache[b].freq ? 1 : -1;
-        // });
         sortHelper(this.list, this.cache);
-        return this.cache[key];
+        return this.cache[key].val;
     }
 };
 
@@ -86,27 +90,30 @@ LFUCache.prototype.put = function(key, value) {
         // check if cache.keys.length is equal to capacity here
         // create helper function to take care of invalidation of least 
         // frequently used
-
+        if(Object.keys(this.cache).length === this.capacity){
+            removeHelper(this.list, this.cache);
+        }
         this.list.push(key);
         this.cache[key] = new Node(value);
     } else{
         this.cache[key].freq++;
         this.cache[key].val = value;
-        sortHelper(this.list, this.cache);
     }
+    sortHelper(this.list, this.cache);
 };
 
-const LFU = new LFUCache(50);
-console.log(LFU);
-LFU.put('key1', 1);
-LFU.put('key2', 2);
-LFU.put('key3', 3);
-console.log(LFU);
-LFU.get('key1');
-console.log(LFU);
-LFU.get('key2');
-console.log(LFU);
-LFU.put('key4', 4);
-LFU.put('key4', '4a');
-LFU.put('key4', '4b');
-console.log(LFU);
+const LFU = new LFUCache(2);
+console.log('put(1,1)'); LFU.put(1,1);
+console.log('put(2,2)'); LFU.put(2,2);
+console.log('get(1) returns:', LFU.get(1));
+
+console.log('put(3,3)'); LFU.put(3,3);
+
+console.log('get(2) returns', LFU.get(2));
+console.log('get(3) returns', LFU.get(3));
+
+console.log('put(4,4)'); LFU.put(4,4);
+
+console.log('get(1) returns',LFU.get(1));
+console.log('get(3) returns',LFU.get(3));
+console.log('get(4) returns',LFU.get(4));
