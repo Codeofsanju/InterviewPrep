@@ -94,3 +94,16 @@ console.log(isInteger(1.2)); // false
 console.log(isInteger('1')); // false
 console.log(isInteger(NaN)); // false
 console.log(isInteger(null)); // false
+
+
+(function () {
+    console.log(1);
+    setTimeout(() => {
+        console.log(2); 
+    }, 1000);
+    
+    setTimeout(() => {
+        console.log(3);
+    }, 0);
+    console.log(4);
+})();
