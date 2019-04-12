@@ -78,3 +78,19 @@ const nan = NaN;
 console.log(nan !== nan);
 
 
+console.log(0.1+0.2);
+console.log(0.1 + 0.4 == 0.3);
+
+const areNumbersAlmostEqual = (num1, num2) => {
+    return Math.abs(num1 - num2) < Number.EPSILON;
+};
+console.log(areNumbersAlmostEqual(0.1 + 0.2, 0.3));
+
+
+
+const isInteger = (x) => (x ^ 0) === x;
+console.log(isInteger(2)); // true
+console.log(isInteger(1.2)); // false
+console.log(isInteger('1')); // false
+console.log(isInteger(NaN)); // false
+console.log(isInteger(null)); // false
