@@ -65,3 +65,13 @@ b3.next = c1;
 
 console.log(intersectionOfTwoLinkedLists(a1, b2));
 
+
+// ACTION CREATOR EX
+
+const ADD_TODO = 'ADD_TODO';
+const addToDoAction = (text) =>{
+    return {
+        type: ADD_TODO,
+        text
+    };
+};
