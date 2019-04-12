@@ -96,14 +96,35 @@ console.log(isInteger(NaN)); // false
 console.log(isInteger(null)); // false
 
 
-(function () {
-    console.log(1);
-    setTimeout(() => {
-        console.log(2); 
-    }, 1000);
+// (function () {
+//     console.log(1);
+
+//     setTimeout(() => {
+//         console.log(2); 
+//     }, 1000);
     
-    setTimeout(() => {
-        console.log(3);
-    }, 0);
-    console.log(4);
-})();
+//     setTimeout(() => {
+//         console.log(3);
+//     }, 0);
+
+//     console.log(4);
+// })();
+
+const isPalindrome = (str) => {
+    let rightPointer = str.length-1;
+    let leftPointer = 0;
+    while(leftPointer < rightPointer){
+        if(str[leftPointer] === str[rightPointer]){
+            leftPointer++;
+            rightPointer--;
+        }
+        else{
+            return false;
+        }
+    }
+    return true;
+};
+
+console.log('isPalindrome dad: ', isPalindrome('dad'));
+console.log('isPalindrome atta: ', isPalindrome('atta'));
+console.log('isPalindrome ASDF:', isPalindrome('ASDF'));
