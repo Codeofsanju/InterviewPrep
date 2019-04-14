@@ -154,3 +154,39 @@ console.log(sum(2,3));   // Outputs 5
 console.log(sum(2)(3));  // Outputs 5
 
 
+
+// var vs let in for loops
+for (var i = 0; i < 5; i++) {
+    console.log(i);
+}
+console.log('leaked var i into global scope: ', i);
+
+for(let j = 0; j < 5; j++){
+    console.log(j);
+}
+//console.log(j); j is undefined as it was declared with let and was block scoped
+
+
+// var vs let in for loops in web dev context
+// for (var i = 0; i < 5; i++) { // will log 5 for all button clicks 
+//     var btn = document.createElement('button');
+//     btn.appendChild(document.createTextNode('Button ' + i));
+//     btn.addEventListener('click', function(){ console.log(i); });
+//     document.body.appendChild(btn);
+//   }
+
+// for (var i = 0; i < 5; i++){ // passing i to a function to save its current state at each pass
+//     var btn = document.createElement('button');
+//     btn.appendChild(document.createTextNode('Button', i));
+//     btn.addEventListener('click', (function(i){ // passing i
+//         return function() {console.log(i);};
+//     })(i));
+//     document.body.appendChild(btn);
+// }
+
+// for(let i = 0; i < 5; i++){ // using let to solve all your problems B
+//     var btn = document.createElement('button');
+//     btn.appendChild(document.createTextNode('Button' + i));
+//     btn.addEventListener('click', function(){console.log(i)});
+//     document.body.appendChild(btn);
+// }
