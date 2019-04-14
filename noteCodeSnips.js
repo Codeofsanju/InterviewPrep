@@ -203,7 +203,7 @@ console.log(d);
 
 // array referencing 
 var arr1 = "john".split('');
-var arr2 = arr1.reverse(); // arr1 was reversed  .arr2 references arr1
+var arr2 = arr1.reverse(); // arr1 was reversed here. arr2 references arr1.
 var arr3 = "jones".split('');
 arr2.push(arr3);
 console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1));
