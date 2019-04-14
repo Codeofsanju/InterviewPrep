@@ -128,3 +128,12 @@ const isPalindrome = (str) => {
 console.log('isPalindrome dad: ', isPalindrome('dad'));
 console.log('isPalindrome atta: ', isPalindrome('atta'));
 console.log('isPalindrome ASDF:', isPalindrome('ASDF'));
+
+
+const revIsPalindrome = (str) => {
+    const reversed = str.split('').reverse().join('');
+    return reversed === str;
+};
+console.log('revisPalindrome dad: ', revIsPalindrome('dad'));
+console.log('revisPalindrome atta: ', revIsPalindrome('atta'));
+console.log('revisPalindrome ASDF:', revIsPalindrome('ASDF'));
