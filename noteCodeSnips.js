@@ -190,3 +190,12 @@ for(let j = 0; j < 5; j++){
 //     btn.addEventListener('click', function(){console.log(i)});
 //     document.body.appendChild(btn);
 // }
+
+
+// setting properties on object using forEach:
+const d = {};
+
+['zebra', 'horse'].forEach((animal) => {
+    d[animal] = undefined;
+});
+console.log(d);
