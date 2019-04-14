@@ -137,3 +137,20 @@ const revIsPalindrome = (str) => {
 console.log('revisPalindrome dad: ', revIsPalindrome('dad'));
 console.log('revisPalindrome atta: ', revIsPalindrome('atta'));
 console.log('revisPalindrome ASDF:', revIsPalindrome('ASDF'));
+
+
+
+
+// sum using:
+
+const sum = (x, y) => {
+    if(y !== undefined) {
+        return x+y;
+    } else {
+        return function(y) {return x+y};
+    }
+};
+console.log(sum(2,3));   // Outputs 5
+console.log(sum(2)(3));  // Outputs 5
+
+
