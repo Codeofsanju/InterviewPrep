@@ -211,10 +211,30 @@ console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));
 
 
 
-
+// typecasting
 console.log(1 + "2" + "2"); // 122
 console.log(1 + +"2" + "2"); // 32
 console.log(1 + -"1" + "2"); // 02
 console.log(+"1" +  "1" + "2"); // 112
 console.log( "A" - "B" + "2"); // NaN2
 console.log( "A" - "B" + 2); // NaN
+
+
+// stack overflow in recursive functions for large input and a solution:
+// const list = readHugeList();
+
+const nextListItem = () => {
+    let item = list.pop();
+    if(item) {
+        nextListItem();
+    }
+};
+
+// A solution would be not to use a callback, but instead let the event 
+// loop handle the recursion:
+const nextListItemSol = () => {
+    let item = list.pop;
+    if(item) {
+        setTimeout(nextListItem, 0);
+    }
+};
