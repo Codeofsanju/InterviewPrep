@@ -238,3 +238,22 @@ const nextListItemSol = () => {
         setTimeout(nextListItem, 0);
     }
 };
+
+
+// CLOSURE EXAMPLE:
+const globalVar = 'global';
+const enclosingFunction = (outerArg) => {
+    const outerVar = 'a';
+
+    return innerFunction = (innerArg) => {
+        const innerVar = 'b';
+        console.log(`OuterVar: ${outerVar}`);
+        console.log(`InnerVar: ${innerVar}`);
+        console.log(`OuterArg: ${outerArg}`);
+        console.log(`InnerArg: ${innerArg}`);
+        console.log(`GlobalVar: ${globalVar}`);
+    };
+};
+
+const closureFunc = enclosingFunction(22);
+closureFunc(44);
