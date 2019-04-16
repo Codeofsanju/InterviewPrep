@@ -1,0 +1,10 @@
+BODY {
+    width: 40em;
+    background: black;
+}
+
+P {
+    width: 30em;
+    margin-left: auto;
+    margin-right: auto;
+}
