@@ -33,10 +33,34 @@
 */
 
 /* APPROACH:
-    - Have 2 queue. 
-        - On push check if main queue has anything in it.
-            - if nothing, push item
-            - if something, shift everything from this queue to secondary
-            queue, push item to main queue, shift everthing back from 
-            secondary to main.
+    Use a stack to keep track of brackets and hash table to match on pop()!
 */
+
+const isValid = (bracketStr) => {
+    if([')', '}', ']'].includes(bracketStr[0])) return false;
+    const stack = [];
+    const map = {
+        ']': '[',
+        '}': '{',
+        ')': '('
+    };
+    const split = bracketStr.split('');
+    for(let i = 0; i < split.length; i++){
+        if(split[i] === '(' || split[i] === '{' || split[i] === '['){
+            stack.push(split[i]);
+        } else{
+            if(stack[stack.length-1] === map[split[i]]){
+                stack.pop();
+            } else{
+                return false;
+            }
+        }
+    }
+    return stack.length === 0;
+};
+
+console.log(isValid('()'));
+console.log(isValid('()[]{}'));
+console.log(isValid('(]'));
+console.log(isValid('([)]'));
+console.log(isValid('{[]}'));
