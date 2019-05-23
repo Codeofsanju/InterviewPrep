@@ -7,21 +7,21 @@ const Animal = function(name, energy){
 
 Animal.prototype.eat = function(){
     this.energy += 1;
-    console.log(`Animal is eating, new energy: ${this.energy}`)
+    console.log(`${this.name} is eating, new energy: ${this.energy}`)
 };
 
 Animal.prototype.sleep = function(){
     this.energy += 5;
-    console.log(`Animal is sleeping, new energy: ${this.energy}`);
+    console.log(`${this.name} is sleeping, new energy: ${this.energy}`);
 };
 
 Animal.prototype.play = function(){
     this.energy -= 2;
-    console.log(`Animal is playing, new energy: ${this.energy}`);
+    console.log(`${this.name} is playing, new energy: ${this.energy}`);
 };
 
 
-const animal1 = new Animal('Bruno', 5);
+const animal1 = new Animal('animal1', 5);
 
 console.log(animal1);
 animal1.eat();
@@ -30,7 +30,7 @@ animal1.sleep();
 
 
 
-// Doggo Class
+// Doggo Sub
 const Dog = function(name, energy, breed) {
     Animal.call(this, name, energy); // setting this context to dog when calling Animal constructor
     this.breed = breed;
@@ -59,3 +59,4 @@ while(curr){
     console.log(curr);
     curr = Object.getPrototypeOf(curr);
 };
+
