@@ -18,7 +18,7 @@ class Animal{
         console.log(`${this.name} is playing, new energy: ${this.energy}`);
     }
 }
-
+ 
 class Dog extends Animal{
     constructor(name, energy, breed){
         super(name, energy);
