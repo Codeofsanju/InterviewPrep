@@ -41,7 +41,7 @@ function anagrams(stringA, stringB) {
 
 
 // using sort()
-function anagrams(stringA, stringB){
+function anagrams1(stringA, stringB){
     const cleanA = stringA.replace(/[^\w]/g, '').toLowerCase(); // clean input of spaces and characters that are not letters
     const cleanB = stringB.replace(/[^\w]/g, '').toLowerCase(); 
 
