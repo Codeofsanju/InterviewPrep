@@ -8,6 +8,8 @@
 //     q.add(1);
 //     q.remove(); // returns 1;
 
+
+// using array methods
 class Queue {
     constructor(){
         this.list = [];
@@ -21,5 +23,28 @@ class Queue {
         return this.list.pop();
     }
 }
+
+
+// using slice and spread syntax
+class Queue1 {
+    constructor(){
+        this.list = [];
+    }
+
+    add(elem){
+        const newArr = [elem, ...this.list];
+        this.list = newArr;
+    }
+
+    remove(){
+        const element = this.list[this.list.length -1];
+        const newArr = this.list.slice(0, this.list.length -1);
+        this.list = newArr;
+        return element;
+    }
+}
+
+
+
 
 module.exports = Queue;
