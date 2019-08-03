@@ -32,6 +32,26 @@ function steps(n) {
     }
 }
 
+// using recursion 
+function recursiveSteps(n, res = '', j=0){
+    if(j === n){
+        return;
+    }
+
+    if(n === res.length){
+        console.log(res);
+        return recursiveSteps(n, '', j+1);
+    }
+
+    if(res.length <= j){
+        res+='#';
+    } else{
+        res+=' ';
+    }
+    recursiveSteps(n, res, j);
+
+}
+
 console.log(steps(4));
 
 module.exports = steps;
