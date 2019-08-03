@@ -16,13 +16,12 @@ function vowels(str) {
     return count;
 }
 
-// using regular expressions and .match -> return number of matches
+// using regular expressions and .match -> return array of matches
 // g means to continue even after one is found and i means insensitive (case insensitive)
 function vowelsRegEx(str){
     const matches = str.match(/['aeiou']/gi);
-
     // if no matches are found, match return null so we must check it
-    return matches === null ? 0 : matches;
+    return matches === null ? 0 : matches.length;
 }
 
 
