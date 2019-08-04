@@ -58,8 +58,17 @@ function fib1(n){
         return result;
     };
  }
+
+ const fibMemoized = memoize(fibRec1);
+
+ function fibRec1(n){
+    if(n===1 || n===0){
+        return n;
+    }
+
+    return fibMemoized(n-1) + fibMemoized(n-2);
+ }
  
  // useing the memoization function 
- const fibMemoized = memoize(fibRec);
 
-module.exports = fib;
+module.exports = fibMemoized;
