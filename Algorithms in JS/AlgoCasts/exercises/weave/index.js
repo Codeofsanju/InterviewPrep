@@ -24,6 +24,19 @@
 
 const Queue = require('./queue');
 
-function weave(sourceOne, sourceTwo) {}
+function weave(sourceOne, sourceTwo) {
+    const res = new Queue();
+
+    while(sourceOne.peek() || sourceTwo.peek()){   // check if loop should continue based on lengths of both sourceOne and sourceTwo
+        if(sourceOne.peek()){  // since or above, you want to avoid pushing undefined by checking again 
+            res.add(sourceOne.remove());
+        }
+        if(sourceTwo.peek()){
+            res.add(sourceTwo.remove());
+        }
+    }
+
+    return res;
+}
 
 module.exports = weave;
