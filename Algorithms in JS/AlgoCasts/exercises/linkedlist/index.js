@@ -144,11 +144,29 @@ class LinkedList {
         }
 
         let nodeToInsertAfter = this.getAt(index-1);
-        let temp = this.getAt(index);
-        const newNode = new Node(data);
+        const newNode = new Node(data, nodeToInsertAfter.next);
         nodeToInsertAfter.next = newNode;
-        newNode.next = temp;
     }
+
+    forEach(func){
+        if(!this.head) return;
+        let curr = this.head;
+        let index = 0;
+        while(curr){
+            func(curr, index); // forEach takes index as second param
+            curr = curr.next;
+            index++;
+        }
+    }
+
+    *[Symbol.iterator](){  // using generators, we can step theough our linked list 'yielding' the current node
+        let curr = this.head;
+        while(curr){
+            yield curr;
+            curr = curr.next;
+        }
+    }
+
 }
 
 module.exports = { Node, LinkedList };
