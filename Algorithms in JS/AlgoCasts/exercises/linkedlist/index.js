@@ -87,16 +87,18 @@ class LinkedList {
 
     getAt(index){
         if(!this.head) return null;
-        if(this.size()-1 < index) return null;
         
         let curr = this.head;
-        let currIndex = 1;
+        let currIndex = 0;
 
-        while(currIndex <= index){
+        while(curr){
+            if(currIndex === index){
+                return curr;
+            }
             curr = curr.next;
             currIndex++;
         }
-        return curr;
+        return null;
     }
 }
 
