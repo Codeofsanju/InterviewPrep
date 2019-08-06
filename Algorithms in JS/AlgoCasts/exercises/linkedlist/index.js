@@ -100,6 +100,55 @@ class LinkedList {
         }
         return null;
     }
+
+    removeAt(index){
+        // empty list case
+        if(!this.head) return;
+
+        // first node case
+        if(index === 0){
+            this.removeFirst();
+            return;
+        }
+
+        // at a given index
+        // let curr = this.head.next;
+        // let prev = this.head;
+        // let currIndex = 1;
+        // while(curr){
+        //     if(currIndex === index){
+        //         prev.next = curr.next;
+        //     }
+        //     prev = curr;
+        //     curr = curr.next;
+        //     currIndex++;
+        // }
+
+        // OR using or getAt() method:
+        let nodeToDeletePrev = this.getAt(index-1);
+        if(!nodeToDeletePrev || !nodeToDeletePrev.next) return;  // index out of bounds case
+        nodeToDeletePrev.next = nodeToDeletePrev.next.next;
+    }
+
+    insertAt(data, index){
+        
+        if(index === 0) {   // treat insertion in empty 
+            const newNode = new Node(data, this.head);
+            this.head = newNode;
+            return;
+        };
+ 
+        if(this.size()-1 < index){  // if index is out of bounds, insert to end of linked list
+            this.insertLast(data);
+            return;
+        }
+
+        let nodeToInsertAfter = this.getAt(index-1);
+        let temp = this.getAt(index);
+        const newNode = new Node(data);
+        nodeToInsertAfter.next = newNode;
+        newNode.next = temp;
+    }
 }
 
 module.exports = { Node, LinkedList };
