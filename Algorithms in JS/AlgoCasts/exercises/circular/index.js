@@ -53,7 +53,10 @@ function circular(list) {
     return false;
 }
 
-// or using a map to keep track of what has already been visited:
+// or using a set to keep track of what has already been visited:
+    // iterate through linked list, adding references to nodes that are not in set
+    // if node already exists in set, we hit a loop => return true
+    // if you finish loop and never hit the above case, return false
 
 function circularMap(list){
     let visited = new Set();
