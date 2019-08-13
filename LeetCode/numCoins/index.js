@@ -1,5 +1,5 @@
 /* Problem:
-    - Given cents value, return number of each type of coin to return 
+    - Given cents value, return min number of each type of coin to return 
     Ex: input: 88 
         output: 3 quarters, 1 dime, 3 pennies
 */
