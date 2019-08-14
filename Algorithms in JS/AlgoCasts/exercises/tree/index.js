@@ -32,12 +32,20 @@ class Tree {
         this.root = _root;
     }
 
-    traverseBF(){
-        
+    traverseBF(fn){
+        if(!this.root) return;
+
+        let queue = [this.root]; // create a queue with root as elem
+
+        while(queue.length){ // while this queue is not empty
+            const curr = queue.shift(); // get and remove first elem
+            queue = [...queue, ...curr.children]; // place its children into queue
+            fn(curr); // call function on removed node
+        }
 
     }
 
-    traverseDF(){
+    traverseDF(fn){
 
     }
 }
