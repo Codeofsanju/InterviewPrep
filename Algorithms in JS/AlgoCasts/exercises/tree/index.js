@@ -35,18 +35,26 @@ class Tree {
     traverseBF(fn){
         if(!this.root) return;
 
-        let queue = [this.root]; // create a queue with root as elem
+        const queue = [this.root]; // create a queue with root as elem
 
         while(queue.length){ // while this queue is not empty
             const curr = queue.shift(); // get and remove first elem
-            queue = [...queue, ...curr.children]; // place its children into queue
+            queue.push(...curr.children); // place its children into queue
             fn(curr); // call function on removed node
         }
 
     }
 
     traverseDF(fn){
+        if(!this.root) return;
 
+        const queue = [this.root];
+
+        while(queue.length){
+            const curr = queue.shift();
+            queue.unshift(...curr.children);
+            fn(curr);
+        }
     }
 }
 
