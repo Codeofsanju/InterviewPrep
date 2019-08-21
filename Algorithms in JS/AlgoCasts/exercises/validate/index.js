@@ -5,6 +5,32 @@
 // every node's right hand child is greater than
 // the parent
 
-function validate(node, min = null, max = null) {}
+function validate(node, min = null, max = null) {
+    if(min !== null && node.data < min) return false;
+    if(max !== null && node.data > max) return false;
+
+    if(node.left && !validate(node.left, min, node.data)){
+        return false;
+    }
+    if(node.right && !validate(node.right, node.data, max)){
+        return false;
+    }
+    return true;
+}
 
 module.exports = validate;
+
+
+// using recursion
+    // start at tope, recurse through
+    // carry along min and max
+
+/*
+
+         10
+        /  \
+       0    12
+      / \   / \
+    -1   4 11  20
+    
+*/
