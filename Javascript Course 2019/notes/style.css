@@ -1,0 +1,32 @@
+body{
+    counter-reset: module;
+}
+
+div{
+    width: 100%;
+    counter-reset: section;
+}
+
+p, h3 {
+    text-indent: 50px;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+    font-style: italic;
+}
+
+h2 {
+    text-indent: 25px;
+}
+
+h2::before{
+    counter-increment: module;
+    content: "Module " counter(module) ": ";
+}
+
+
+h3::before{
+    counter-increment: section;
+    content: "Section " counter(section) ": ";
+}
