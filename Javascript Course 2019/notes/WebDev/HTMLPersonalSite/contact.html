@@ -7,7 +7,21 @@
     <title>Contact</title>
 </head>
 <body>
+    <h1>My Contact Details</h1>
     <h3>Email: sanjuworkny@gmail.com</h3>
     <h3>Phone: 347-990-6519</h3>
+
+    <form action="mailto:sanjuworkny@gmail.com" method="POST" enctype="text/plain">
+        <label>Your Name:</label>
+        <input name="yourName" type="text" value=""> <br>
+
+        <label>Your Email:</label>
+        <input name="yourEmail" type="email"><br>
+
+        <label>Your message:</label> <br>
+        <textarea name="yourMessage" cols="30" rows="10"></textarea><br>
+        
+        <input type="submit">
+    </form>
 </body>
 </html>
